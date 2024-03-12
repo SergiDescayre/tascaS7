@@ -1,21 +1,22 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchStarShips } from "../redux/starShipsSlice";
+import { fetchStarships } from "../features/starships/starShipThunk";
 import { useEffect } from "react";
+import StarShipsCard from "../components/starShipsCard";
 
 const StarShips = () => {
     const dispatch = useDispatch()
-    const {loading , starShips} = useSelector((state => state.starShips))
+    const {isloading , data} = useSelector((state => state.starShips))
     useEffect(() => {
-        dispatch(fetchStarShips())
+        dispatch(fetchStarships())
     }, [])   
-    if(loading){
+    if(isloading){
         return (
             <div>Carregant...</div>
         )
-    }if(starShips.results){
+    }if(data.results){
         return(
-            <div>
-                {starShips.results.map(item => item.name)}
+            <div className="p-3">
+                {data.results.map(starData => <StarShipsCard key={starData.name} starData={starData} />)}
             </div>
         )
     }

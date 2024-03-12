@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import StarShips from "../pages/StarShips";
 import NotFound from "../pages/NotFound";
 import MainLayout from "../layout/MainLayout";
+import FileStarShip from "../pages/FileStarShip";
 
 export const router = createBrowserRouter([
     {
@@ -18,7 +19,10 @@ export const router = createBrowserRouter([
             {
                 path: "/starships",
                 element: <StarShips />,
-                errorElement: <NotFound />
+            },
+            {
+                path: "/filestarship/:name",
+                element: <FileStarShip />,
             },
         ],
     },
