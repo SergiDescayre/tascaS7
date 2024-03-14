@@ -5,20 +5,27 @@ const initialState = {
     data:[],
     isLoading: false,
     error: null,
+    next: ""
 }
 
 
-const starShipsSlice = createSlice({
- name: "starships",
+export const starShipsSlice = createSlice({
+ 
+  name: "starships",
  initialState,
- reducers:{},
+ reducers:{
+  addData:(state,action) => {
+    state.data = action.payload
+  }
+ },
  extraReducers: (builder) =>{
     builder
     .addCase(fetchStarships.pending, (state)=>{
         state.isLoading=true;
     })
     .addCase(fetchStarships.fulfilled, (state, action)=> {
-       state.data = action.payload; 
+       state.data =action.payload.results; 
+        state.next = action.payload.next
        state.isLoading =false;
     })
     .addCase(fetchStarships.rejected, (state,action)=>{
@@ -29,4 +36,3 @@ const starShipsSlice = createSlice({
 })
 
 
-export default starShipsSlice.reducer

@@ -6,24 +6,43 @@ import StarShipsCard from "../components/starShipsCard";
 
 const StarShips = () => {
 
-    const [url,setUrl] = useState("https://swapi.py4e.com/api/starships")
-
+    const [url,setUrl] = useState("https://swapi.py4e.com/api/starships/?page=1")
+   
     const dispatch = useDispatch()
-    const {isloading , data} = useSelector((state => state.starShips))
+    const {isloading , data, next} = useSelector((state => state.starShips))
+    const [starShips , setStarShips] = useState(data)
+
+    console.log(data)
+    console.log(starShips)
+
+    const AddStarShips = () => {
+        setUrl(next)
+        setStarShips([...starShips,...data])
+        return starShips
+    } 
     useEffect(() => {
         dispatch(fetchStarships(url))
-        console.log(data)
-    }, [])   
+       
+    }, [url])   
+
     if(isloading){
         return (
             <div>Carregant...</div>
         )
-    }if(data.results){
+    }if(data){
         return(
+            <>
             <div className="p-3">
-                {data.results.map(starData => <StarShipsCard key={starData.name} starData={starData} />)}
+                {data.map(starData => <StarShipsCard key={starData.name} starData={starData} />)}
             </div>
+            {
+            next !== null && <button onClick={AddStarShips}>Show More</button>
+            }
+            
+            </>
         )
+
+      
     }
 }
 

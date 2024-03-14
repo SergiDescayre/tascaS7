@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const url = "https://swapi.py4e.com/api/starships"
 
 export const fetchStarships = createAsyncThunk(
     'starShips/fetchStarships',async (url) => {

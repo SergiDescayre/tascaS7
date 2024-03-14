@@ -1,8 +1,8 @@
 import {configureStore} from "@reduxjs/toolkit"
-import starShipSlice from "./starShipSlice"
+import { starShipsSlice } from "./starShipSlice"
 
-export const store = configureStore({
+export default configureStore({
     reducer:{
-        starShips:starShipSlice
+        starShips:starShipsSlice.reducer
     }
 })
