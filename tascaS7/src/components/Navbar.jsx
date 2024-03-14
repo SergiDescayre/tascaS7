@@ -6,13 +6,13 @@ const Navbar = () => {
       <NavLink to="/"
       className= {({ isActive }) => (isActive ? "border-l-2 border-r-2 border-b-[6px] border-gray-500 border-b-blue-500 p-3" : "border-r-2 border-l-2  border-gray-500 p-3" )}
       >
-      <span className="px-7">HOME</span>
+      <span className="px-7 text-xs">HOME</span>
       
       </NavLink>
       <NavLink to="/starships"
       className={({ isActive }) => (isActive ? "border-l-2 border-r-2 border-b-[6px] border-gray-500 border-b-blue-500 p-3" : "border-r-2 border-l-2  border-gray-500 p-3" )}
       >
-       <span className="px-7">STARSHIPS</span>
+       <span className="px-7 text-xs">STARSHIPS</span>
       </NavLink>
     </nav>
   )

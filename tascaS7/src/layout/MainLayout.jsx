@@ -12,10 +12,11 @@ const MainLayout = () => {
   const dispatch = useDispatch()
    useEffect(() => {
         dispatch(fetchStarships(url))
-    }, [url]) 
-      
+    }, [url])   
+
+  
   return (
-    <div className="bg-gray-950 text-gray-500">
+    <div className="bg-black text-gray-500">
     <Header />
     <Navbar />
      
