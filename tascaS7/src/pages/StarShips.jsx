@@ -1,29 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
-
-import { fetchStarships } from "../features/starships/starShipThunk";
-import { useEffect ,useState } from "react";
+import { updateUrl } from "../features/starships/starShipSlice";
 import StarShipsCard from "../components/starShipsCard";
 
 const StarShips = () => {
 
-    const [url,setUrl] = useState("https://swapi.py4e.com/api/starships/?page=1")
-   
-    const dispatch = useDispatch()
     const {isloading , data, next} = useSelector((state => state.starShips))
-    const [starShips , setStarShips] = useState(data)
-
-    console.log(data)
-    console.log(starShips)
-
-    const AddStarShips = () => {
-        setUrl(next)
-        setStarShips([...starShips,...data])
-        return starShips
-    } 
-    useEffect(() => {
-        dispatch(fetchStarships(url))
-       
-    }, [url])   
+    const dispatch = useDispatch()
+    
+    //carrego més naus al llistat
+    const handleShow = () => {
+        dispatch(updateUrl(next))
+    }
 
     if(isloading){
         return (
@@ -36,13 +23,13 @@ const StarShips = () => {
                 {data.map(starData => <StarShipsCard key={starData.name} starData={starData} />)}
             </div>
             {
-            next !== null && <button onClick={AddStarShips}>Show More</button>
+            next !== null && 
+            <div className="flex justify-center py-5">
+                <button className="border border-gray-500 rounded-md font-bold px-10 py-3 hover:bg-gray-700 text-blue-500" onClick={handleShow} >Show More</button>
+            </div>
             }
-            
             </>
         )
-
-      
     }
 }
 
