@@ -6,4 +6,55 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+   
 }
+
+.container-star {
+    overflow: hidden;
+    height:  100vh;
+    background-color: black;
+    background-image: url("./assets/bg-stars.jpg");
+    background-size: cover;
+    margin: 0;
+  }
+  
+  .container-star h2 {
+    text-align: center;
+    margin: 0 0 60px 0;
+    font-size: 5rem;
+  }
+  
+  .container-star p {
+    font-size: 3rem;
+    line-height: 6rem;
+    margin-bottom: 20px;
+  }
+  
+  .star-wars {
+    padding: 40px;
+    text-align: justify;
+    margin: 0 auto;
+    letter-spacing: 1.5px;
+    max-width: 1080px;
+    height: 800px;
+    transform: perspective(200px) rotateX(14deg);
+    animation: intro 30s linear infinite;
+  }
+  
+  .star-wars :is(h2, p) {
+    color: rgb(214, 214, 35)
+  }
+  
+  @keyframes intro {
+    0% {
+      transform: perspective(200px) rotateX(14deg) translateY(800px);
+      opacity: 1;
+    }
+    60% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: perspective(200px) rotateX(20deg) translateY(-1000px);
+      opacity: 0;
+    }
+  }

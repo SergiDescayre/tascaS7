@@ -11,6 +11,7 @@ const FileStarShip = () => {
   const param = useParams();
   const starship = data.find((item) => item.name === param.name);
   console.log(starship);
+
   const handleError = () => {
     setImg(imgNotFound);
   };
@@ -20,31 +21,31 @@ const FileStarShip = () => {
         <span className="p-2 border-t border-b border-gray-500 block">
           STARSHIP
         </span>
-        <div className="flex mt-10 gap-7 items-center">
-          <div>
-            <img className="rounded max-w-[400px]" onError={handleError} src={img} />
+        <div className="grid grid-cols-2 gap-4 mt-10">
+          <div >
+            <img className="rounded object-cover w-full h-full" onError={handleError} src={img} />
           </div>
-          <div className="bg-gray-900  border-l-8 border-red-500 rounded ">
+          <div className="bg-gray-900  border-l-8 border-red-500 rounded h-[400px] ">
             <div className="text-lg uppercase p-3">
               <span>{starship.name}</span>
             </div>
             <div className="px-3">
-              <span className="text-sm">
+              <span className="text-md">
                 Lorem ipsum dolor sit amet coectetur adipisicing elit. Impedit
                 non dolorum, excepturi nemo eaque molestiae rerum natus enim,
                 aspernatur d
               </span>
             </div>
-            <div className="flex px-3 my-10 justify-between gap-10">
-              <div>
-                <p className="text-xs">Model: {starship.model}</p>
-                <p className="text-xs">Cost in credits: {starship.cost_in_credits}</p>
-                <p className="text-xs">Admospheric: {starship.max_atmosphering_speed}</p>
+            <div className="grid grid-cols-2 pt-6 ps-3 ">
+              <div className="self-end">
+                <p className="text-md">Model: {starship.model}</p>
+                <p className="text-md">Cost in credits: {starship.cost_in_credits}</p>
+                <p className="text-md">Admospheric: {starship.max_atmosphering_speed}</p>
               </div>
               <div>
-                <p className="text-xs">Manufacturer: {starship.manufacturer}</p>
-                <p className="text-xs">Length: {starship.length}</p>
-                <p className="text-xs">Crew: {starship.crew}</p>
+                <p className="text-md">Manufacturer: {starship.manufacturer}</p>
+                <p className="text-md">Length: {starship.length}</p>
+                <p className="text-md">Crew: {starship.crew}</p>
               </div>
             </div>
           </div>
