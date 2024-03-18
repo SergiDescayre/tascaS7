@@ -5,6 +5,7 @@ import StarShips from "../pages/StarShips";
 import NotFound from "../pages/NotFound";
 import MainLayout from "../layout/MainLayout";
 import FileStarShip from "../pages/FileStarShip";
+import Login from "../pages/Login";
 
 export const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
             {
                 path: "/filestarship/:name",
                 element: <FileStarShip />,
+            },
+            {
+                path: "/login",
+                element: <Login />,
             },
         ],
     },
