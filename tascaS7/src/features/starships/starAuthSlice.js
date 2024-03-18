@@ -1,16 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
-import appFirebase from "../../credentials";
-import {getAuth,onAuthStateChanged } from "firebase/auth"
-const auth = getAuth(appFirebase)
+
 
 const initialState = {
- auth
+ isRegister:true,
+ userStar:{},
+ isUserLogin:false,
 };
 
 export const starAuthSlice = createSlice({
   name: "starAuth",
   initialState,
-  reducers: {},
+  reducers: {
+    isLogin: (state, action) => {
+      state.isRegister = action.payload;
+    },
+    setUserStar:(state,action)=>{
+      state.userStar = action.payload;
+    },
+    isUserLogin: (state, action) => {
+      state.isUserLogin = action.payload;
+    },
+  },
 });
 
+
+export const  {isLogin,setUserStar,isUserLogin}  = starAuthSlice.actions
 
