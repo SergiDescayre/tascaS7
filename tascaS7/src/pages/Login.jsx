@@ -5,8 +5,10 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+
+import 'firebase/auth';
 import { useSelector, useDispatch } from "react-redux";
-import { isLogin, setUserStar,isUserLogin } from "../features/starships/starAuthSlice";
+import { isLogin, setUserStar,setIsUserLogin } from "../features/starships/starAuthSlice";
 
 const auth = getAuth(appFirebase);
 
@@ -42,40 +44,48 @@ const Login = () => {
 
     if (!isRegister) {
       try {
-        await createUserWithEmailAndPassword(auth, user.email, user.password);
-        dispatch(isUserLogin(true))
+        await createUserWithEmailAndPassword(auth, user.email, user.password)
+        dispatch(setIsUserLogin(true))
       } catch (error) {
+       
         switch (error.code) {
           case "auth/weak-password":
             setError("Password should be at least 6 characters");
+            
             break;
           case "auth/invalid-email":
             setError("Invalid email");
+           
             break;
           // Manejar otros casos de error según sea necesario
         }
+        
       }
     } else {
       try {
         await signInWithEmailAndPassword(auth, user.email, user.password);
-        dispatch(isUserLogin(true))
+        dispatch(setIsUserLogin(true))
       } catch (error) {
+      
         console.log(error);
         switch (error.code) {
           case "auth/invalid-email":
             setError("Invalid Email");
+        
             break;
           case "auth/invalid-credential":
             setError("The password provided is incorrect");
+         
             break;
         }
+     
       }
     }
   };
 
   return (
     <section className="h-screen">
-      <div className="w-[350px] mx-auto mt-10 bg-gray-900 p-10 rounded shadow">
+      <div className="w-[500px] mx-auto mt-10 bg-gray-900 p-10 rounded shadow">
         <form onSubmit={aunthenticate} noValidate className="grid grid-cols-1">
           <label>Email</label>
           <input
@@ -96,7 +106,7 @@ const Login = () => {
             value={user.password}
             onChange={handleChange}
           />
-          <button className=" py-1 px-3 rounded bg-blue-500 my-3 text-black hover:text-blue-500 hover:bg-black ">
+          <button className=" font-bold text-white py-1 px-3 rounded bg-blue-500 my-3  hover:text-blue-500 hover:bg-black ">
             {isRegister ? "Login" : "Register"}
           </button>
         </form>
@@ -106,14 +116,14 @@ const Login = () => {
           </p>
           <button
             onClick={handleIsRegister}
-            className=" py-1 px-3 rounded bg-blue-500 my-3 text-black hover:text-blue-500 hover:bg-black "
+            className=" font-bold py-1 px-3 rounded bg-blue-500 my-3 text-white hover:text-blue-500 hover:bg-black "
           >
             {isRegister ? "Register" : "Login"}
           </button>
         </div>
       </div>
       {error !== "" && (
-        <div className="w-[350px] mx-auto mt-10 bg-red-400 rounded">
+        <div className="w-[500px] mx-auto mt-10 bg-red-400 rounded">
           <p className="p-2 text-center text-black">{error}</p>
         </div>
       )}
