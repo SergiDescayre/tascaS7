@@ -29,25 +29,28 @@ const Header = () => {
 
   return (
     <header className="flex flex-col items-center md:flex-row justify-between px-20">
-      <div>xarxes socials icones</div>
-      <img className="w-[250px] text-center " src={logoStars} alt="" />
-      <div className="flex flex-col ">
+      <div className=" w-[30%]"><span>xarxes socials icones</span> </div>
+      <div className=" w-[30%]">
+      <img className="w-[250px] mx-auto " src={logoStars} alt="" />
+      </div>
+    
+      <div className="w-[30%] flex flex-col items-end  ">
         {isUserLogin ? (
           <button
             onClick={handleLogOut}
-            className="mb-3 bg-blue-500 text-white font-bold py-1 px-3 border border-blue-500 rounded hover:bg-black hover:text-blue-500 "
+            className="mb-3  w-[150px]  bg-blue-500 text-white font-bold py-1 px-3 border border-blue-500 rounded hover:bg-black hover:text-blue-500 "
           >
             LOGOUT
           </button>
         ) : (
           <button
             onClick={handleSignUp}
-            className="mb-3 bg-blue-500 text-white font-bold py-1 px-3 border border-blue-500 rounded hover:bg-black hover:text-blue-500 "
+            className="mb-3  w-[150px] bg-blue-500 text-white font-bold py-1 px-3 border border-blue-500 rounded hover:bg-black hover:text-blue-500 "
           >
             SIGN UP
           </button>
         )}
-        {isUserLogin && <span className="text-blue-500 text-lg">{userStar.email}</span>}
+        {isUserLogin && <span className="text-blue-500 text-lg ">{userStar.email}</span>}
       </div>
     </header>
   );
