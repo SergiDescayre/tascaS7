@@ -16,7 +16,7 @@ const MainLayout = () => {
 
   
   return (
-    <div className="bg-black text-gray-500">
+    <div className="bg-black text-white">
     <Header />
     <Navbar />
      

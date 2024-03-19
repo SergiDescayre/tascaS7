@@ -5,6 +5,11 @@ import { useNavigate } from "react-router-dom";
 import {getAuth,signOut} from "firebase/auth"
 import appFirebase from "../credentials";
 
+import Facebook from "../assets/Facebook.png"
+import Instagram from "../assets/Instagram.png"
+import Twitter from "../assets/Twitter.png"
+
+
 import logoStars from "../assets/star-wars-2.svg";
 
 
@@ -29,7 +34,13 @@ const Header = () => {
 
   return (
     <header className="flex flex-col items-center md:flex-row justify-between px-20">
-      <div className=" w-[30%]"><span>xarxes socials icones</span> </div>
+      <div className=" w-[30%] flex gap-4">
+    
+      <a href="https://www.facebook.com/starwars.es/?locale=es_ES" target="_blank"><img  className="w-6 cursor-pointer hover:scale-150 transition ease-in-out delay-100" src={Facebook}></img></a>
+      <a href="https://www.instagram.com/starplusla/?hl=es" target="_blank"><img  className="w-6 cursor-pointer hover:scale-150 transition ease-in-out delay-100" src={Instagram}></img></a>
+      <a href="https://twitter.com/starwars" target="_blank"><img  className="w-6 cursor-pointer hover:scale-150 transition ease-in-out delay-100" src={Twitter}></img></a>
+
+       </div>
       <div className=" w-[30%]">
       <img className="w-[250px] mx-auto " src={logoStars} alt="" />
       </div>
