@@ -48,6 +48,7 @@ const Login = () => {
       try {
         await createUserWithEmailAndPassword(auth, user.email, user.password)
         dispatch(setIsUserLogin(true))
+        navigate("/")
       
 
       } catch (error) {
@@ -69,6 +70,7 @@ const Login = () => {
       try {
         await signInWithEmailAndPassword(auth, user.email, user.password);
         dispatch(setIsUserLogin(true))
+        navigate("/")
       
       } catch (error) {
       
