@@ -1,5 +1,6 @@
 import { useState } from "react";
 import appFirebase from "../credentials";
+import {useNavigate} from "react-router-dom"
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -15,6 +16,7 @@ const auth = getAuth(appFirebase);
 const Login = () => {
   const { isRegister, userStar } = useSelector((state) => state.starAuth);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const [user, setUser] = useState({
     email: "",
@@ -46,6 +48,8 @@ const Login = () => {
       try {
         await createUserWithEmailAndPassword(auth, user.email, user.password)
         dispatch(setIsUserLogin(true))
+      
+
       } catch (error) {
        
         switch (error.code) {
@@ -65,6 +69,7 @@ const Login = () => {
       try {
         await signInWithEmailAndPassword(auth, user.email, user.password);
         dispatch(setIsUserLogin(true))
+      
       } catch (error) {
       
         console.log(error);
