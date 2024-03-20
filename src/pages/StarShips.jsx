@@ -6,6 +6,8 @@ const StarShips = () => {
 
     const {isloading , data, next} = useSelector((state => state.starShips))
     const dispatch = useDispatch()
+
+    
     
     //carrego més naus al llistat
     const handleShow = () => {

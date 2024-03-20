@@ -7,7 +7,7 @@ import StarShips from "../pages/StarShips";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStarships } from "../features/starships/starShipThunk";
 import FileStarShip from "../pages/FileStarShip";
-import { useEffect,useState } from "react";
+import { useEffect } from "react";
 import ProtectedRoute from "../utils/ProtectedRoute";
 
 
@@ -16,7 +16,8 @@ const MainLayout = () => {
   const dispatch = useDispatch()
    useEffect(() => {
         dispatch(fetchStarships(url))
-    }, [url])   
+    }, [url])  
+    
 
   
   return (

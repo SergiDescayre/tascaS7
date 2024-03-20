@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import imgNotFound from "../assets/rd2d.jpg";
-
+import Pilots from "./Pilots";
 const FileStarShip = () => {
   const { data, idImage } = useSelector((state) => state.starShips);
   const [img, setImg] = useState(
@@ -10,14 +10,14 @@ const FileStarShip = () => {
   );
   const param = useParams();
   const starship = data.find((item) => item.name === param.name);
-  console.log(starship);
+    console.log(starship)
 
   const handleError = () => {
     setImg(imgNotFound);
   };
   return (
     <>
-      <div className=" w-[85%] mx-auto mt-10 h-screen">
+      <div className=" w-[85%] mx-auto mt-10">
         <span className="p-2 border-t border-b border-gray-500 block">
           STARSHIP
         </span>
@@ -51,6 +51,7 @@ const FileStarShip = () => {
           </div>
         </div>
       </div>
+      <Pilots starship={starship} />
     </>
   );
 };

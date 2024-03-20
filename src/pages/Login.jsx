@@ -35,9 +35,7 @@ const Login = () => {
 
   const aunthenticate = async (e) => {
     e.preventDefault();
-    console.log(user);
     dispatch(setUserStar(user));
-    console.log(userStar);
     if (user.email === "" || user.password === "") {
       setError("Please fill out all fields.");
     } else {

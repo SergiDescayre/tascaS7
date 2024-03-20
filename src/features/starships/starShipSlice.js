@@ -19,7 +19,6 @@ export const starShipsSlice = createSlice({
     },
     addIdImage: (state,action) => {
       state.idImage = action.payload;
-      console.log(state.idImage)
     }
   },
   extraReducers: (builder) => {
