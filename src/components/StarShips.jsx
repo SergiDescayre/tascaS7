@@ -1,13 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { updateUrl } from "../features/starships/starShipSlice";
-import StarShipsCard from "../components/starShipsCard";
+import StarShipsCard from "./starShipsCard";
 
 const StarShips = () => {
 
     const {isloading , data, next} = useSelector((state => state.starShips))
     const dispatch = useDispatch()
-
-    
     
     //carrego més naus al llistat
     const handleShow = () => {

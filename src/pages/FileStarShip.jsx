@@ -2,15 +2,17 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import imgNotFound from "../assets/rd2d.jpg";
-import Pilots from "./Pilots";
+import Pilots from "../components/Pilots";
+import Films from "../components/Films";
 const FileStarShip = () => {
   const { data, idImage } = useSelector((state) => state.starShips);
   const [img, setImg] = useState(
     `https://starwars-visualguide.com/assets/img/starships/${idImage}.jpg`
   );
   const param = useParams();
+
+  //resupero informació de la nau pel su nom
   const starship = data.find((item) => item.name === param.name);
-    console.log(starship)
 
   const handleError = () => {
     setImg(imgNotFound);
@@ -52,6 +54,7 @@ const FileStarShip = () => {
         </div>
       </div>
       <Pilots starship={starship} />
+      <Films starship={starship}/>
     </>
   );
 };

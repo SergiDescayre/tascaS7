@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar"
 import Header from "../components/Header"
 import Home from "../pages/Home";
 import Login from "../pages/Login";
-import StarShips from "../pages/StarShips";
+import StarShips from "../components/StarShips";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStarships } from "../features/starships/starShipThunk";
 import FileStarShip from "../pages/FileStarShip";

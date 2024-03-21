@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
 
 import Home from "../pages/Home";
-import StarShips from "../pages/StarShips";
+import StarShips from "../components/StarShips";
 import NotFound from "../pages/NotFound";
 import MainLayout from "../layout/MainLayout";
 import FileStarShip from "../pages/FileStarShip";
