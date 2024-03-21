@@ -19,7 +19,6 @@ export const filmsSlice = createSlice({
         })
         .addCase(fetchFilms.fulfilled,(state,action)=> {
             state.data = action.payload
-            console.log(state.data)
             state.isLoading = false
         })
         .addCase(fetchFilms.rejected,(state,action)=>{

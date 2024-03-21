@@ -11,8 +11,6 @@ const Films = ({starship}) => {
   useEffect(()=> {
     dispatch(fetchFilms(starship.films))
   },[])
-
-  console.log(data)
  
   if(isLoading){
     return <div>Carregant...</div>
