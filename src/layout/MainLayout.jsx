@@ -21,7 +21,7 @@ const MainLayout = () => {
 
   
   return (
-    <div className="bg-black text-white">
+    <div className="text-white">
     <Header />
     <Navbar />
     <Routes>
