@@ -50,19 +50,18 @@ const Login = () => {
       
 
       } catch (error) {
-       
         switch (error.code) {
           case "auth/weak-password":
             setError("Password should be at least 6 characters");
-            
             break;
           case "auth/invalid-email":
             setError("Invalid email");
-           
+            break;
+          case "auth/email-already-in-use":
+            setError("This email is already in use.");
             break;
           // Manejar otros casos de error según sea necesario
         }
-        
       }
     } else {
       try {
@@ -79,7 +78,7 @@ const Login = () => {
         
             break;
           case "auth/invalid-credential":
-            setError("The password provided is incorrect");
+            setError("The password or email provided are incorrect");
          
             break;
         }
@@ -90,7 +89,7 @@ const Login = () => {
 
   return (
     <section className="h-screen">
-      <div className="w-[500px] mx-auto mt-10 bg-gray-900 p-10 rounded shadow">
+      <div className="mx-4 md:mx-32 lg:w-[450px] lg:mx-auto mt-10 bg-gray-900 p-10 rounded shadow">
         <form onSubmit={aunthenticate} noValidate className="grid grid-cols-1">
           <label>Email</label>
           <input
@@ -115,8 +114,8 @@ const Login = () => {
             {isRegister ? "Login" : "Register"}
           </button>
         </form>
-        <div className="grid grid-cols-3 items-center">
-          <p className="col-span-2">
+        <div className="grid grid-cols-2 items-center">
+          <p className="">
             {isRegister ? "Don't have account?" : "Have an account?"}
           </p>
           <button
@@ -128,7 +127,7 @@ const Login = () => {
         </div>
       </div>
       {error !== "" && (
-        <div className="w-[500px] mx-auto mt-10 bg-red-400 rounded">
+        <div className="mx-4 md:mx-32 mt-10 lg:w-[450px] lg:mx-auto bg-red-400 rounded">
           <p className="p-2 text-center text-black">{error}</p>
         </div>
       )}

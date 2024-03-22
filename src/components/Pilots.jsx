@@ -21,7 +21,7 @@ const Pilots = ({ starship }) => {
         <span className="p-2 border-t border-b border-gray-500 block">
           PILOTS
         </span>
-        <div className="flex  flex-wrap gap-5 mt-5 justify-center md:justify-between">
+        <div className="mt-5 gap-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {data.length > 0 ? data.map(pilot => <CardPilot key={pilot.name} pilot={pilot} />)
             : <ImageNotFound title="Pilots" />}
         </div>

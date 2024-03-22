@@ -10,7 +10,6 @@ const active = false
     }else{
         return <Outlet />
     }
-    
 }
 
 export default ProtectedRoute

@@ -33,35 +33,35 @@ const Header = () => {
 
 
   return (
-    <header className="flex flex-col items-center md:flex-row justify-between px-20">
-      <div className=" w-[30%] flex gap-4">
+    <header className="grid grid-cols-1 md:grid-cols-3 items-center">
+      <div className="flex gap-4 justify-center mt-3">
     
       <a href="https://www.facebook.com/starwars.es/?locale=es_ES" target="_blank"><img  className="w-6 cursor-pointer hover:scale-150 transition ease-in-out delay-100" src={Facebook}></img></a>
       <a href="https://www.instagram.com/starplusla/?hl=es" target="_blank"><img  className="w-6 cursor-pointer hover:scale-150 transition ease-in-out delay-100" src={Instagram}></img></a>
       <a href="https://twitter.com/starwars" target="_blank"><img  className="w-6 cursor-pointer hover:scale-150 transition ease-in-out delay-100" src={Twitter}></img></a>
 
        </div>
-      <div className=" w-[30%]">
-      <img className="w-[250px] mx-auto " src={logoStars} alt="" />
+      <div className=" ">
+      <img className="w-[250px] mx-auto " src={logoStars} alt="logo" />
       </div>
     
-      <div className="w-[30%] flex flex-col items-end  ">
+      <div className=" flex flex-col items-center">
         {isUserLogin ? (
           <button
             onClick={handleLogOut}
-            className="mb-3  w-[150px]  bg-blue-500 text-white font-bold py-1 px-3 border border-blue-500 rounded hover:bg-black hover:text-blue-500 "
+            className="mb-3  w-[100px]  bg-blue-500 text-white font-bold py-1 px-3 border border-blue-500 rounded hover:bg-black hover:text-blue-500 "
           >
             LOGOUT
           </button>
         ) : (
           <button
             onClick={handleSignUp}
-            className="mb-3  w-[150px] bg-blue-500 text-white font-bold py-1 px-3 border border-blue-500 rounded hover:bg-black hover:text-blue-500 "
+            className="mb-3  w-[100px] bg-blue-500 text-white font-bold py-1 px-3 border border-blue-500 rounded hover:bg-black hover:text-blue-500 "
           >
             SIGN UP
           </button>
         )}
-        {isUserLogin && <span className="text-blue-500 text-lg ">{userStar.email}</span>}
+        {isUserLogin && <span className="text-blue-500 mb-3">{userStar.email}</span>}
       </div>
     </header>
   );
