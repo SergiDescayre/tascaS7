@@ -3,9 +3,8 @@ import { Navigate, Outlet } from "react-router-dom"
 
 const ProtectedRoute = () => {
 const {isUserLogin} = useSelector((state) => state.starAuth)
-const active = false
 
-    if(active){
+    if(!isUserLogin){
         return <Navigate to="/login" replace/>
     }else{
         return <Outlet />
