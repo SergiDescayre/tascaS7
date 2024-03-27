@@ -1,4 +1,4 @@
-# StarsWars 
+# StarWars 
 
 Proyecto dentro de la formación de ITAcademy
 
