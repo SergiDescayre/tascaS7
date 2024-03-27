@@ -13,7 +13,7 @@ const CardStarShip = ({starship}) => {
       };
 
   return (
-    <div className=" w-[85%] mx-auto mt-10">
+    <div className="mt-10">
     <HeadersCards title={"STARSHIP"} />
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
       <div >

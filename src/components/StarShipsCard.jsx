@@ -17,7 +17,7 @@ const StarShipsCard = ({starData}) => {
     }
   return (
     <>
-    <section onClick={() => handleCard(starData)} className="cursor-pointer bg-gray-900 hover:bg-gray-800 hover:text-blue-500 w-[80%] mx-auto m-6 rounded-md p-4">
+    <section onClick={() => handleCard(starData)} className="cursor-pointer bg-gray-900 hover:bg-gray-800 hover:text-blue-500 my-6 rounded-md p-4">
         <div>
             <span className='uppercase '>{starData.name}</span>
         </div>

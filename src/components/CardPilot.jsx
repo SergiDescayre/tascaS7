@@ -6,14 +6,12 @@ const CardPilot = ({ pilot }) => {
     return url.slice(33).slice(0, -1)
   }
   return (
-    <div className="">
       <div className="rounded-md overflow-hidden bg-gray-900">
-        <img className="border-b-4 border-red-500" src={`https://starwars-visualguide.com/assets/img/characters/${extractNumber(pilot.url)}.jpg`} alt={pilot.name}></img>
+        <img className="border-b-4 border-red-500 w-[100%]" src={`https://starwars-visualguide.com/assets/img/characters/${extractNumber(pilot.url)}.jpg`} alt={pilot.name}></img>
         <div className='p-3 text-center'>
         <span className="uppercase">{pilot.name}</span>
         </div>
       </div>
-    </div>
   )
 }
 

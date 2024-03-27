@@ -24,6 +24,7 @@ const MainLayout = () => {
     <div className="text-white">
     <Header />
     <Navbar />
+    <div className="w-[85%] md:w-[90%] lg:w-[75%] mx-auto">
     <Routes>
     <Route element={<ProtectedRoute />}>
       <Route path="/" element={<Home />}/>
@@ -32,6 +33,7 @@ const MainLayout = () => {
     </Route>
       <Route path="/login" element={<Login />}/>
     </Routes>
+    </div>
     </div>
   )
 }
