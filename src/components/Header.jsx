@@ -13,11 +13,9 @@ const Header = () => {
   const navigate = useNavigate();
   const { isUserLogin, userStar } = useSelector((state) => state.starAuth);
 
-  const handleSignUp = () => {
-    navigate("/login");
-  };
 
   const handleLogOut = async () => {
+    localStorage.removeItem("user")
     navigate("/login");
     dispatch(setIsUserLogin(false));
     await signOut(auth);
@@ -31,7 +29,7 @@ const Header = () => {
         {isUserLogin ? (
           <ButtonHeader title={"LOGOUT"} handleButton={handleLogOut} />
         ) : (
-          <ButtonHeader title={"SIGN UP"} handleButton={handleSignUp} />
+          <ButtonHeader title={"SIGN UP"}/>
         )}
         {isUserLogin && (
           <span className="text-blue-500 mb-3">{userStar.email}</span>

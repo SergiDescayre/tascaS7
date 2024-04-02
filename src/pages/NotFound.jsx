@@ -1,13 +1,10 @@
-import { useRouteError } from "react-router-dom";
 
 const NotFound = () => {
-    const error = useRouteError();
  
     return (
-        <div>
-            <h1>404</h1>
-            <p>Page not found</p>
-            <p>{error.statusText || error.message}</p>
+        <div className="container_not_found border border-yellow-500 h-full w-full flex flex-col items-center justify-center my-6 rounded-lg">
+            <h1 className="text-[100px] text-yellow-500">404</h1>
+            <p className="text-[25px] text-yellow-500">Page not found</p>
         </div>
     );
 };

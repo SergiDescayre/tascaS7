@@ -35,7 +35,11 @@ const Login = () => {
 
   const aunthenticate = async (e) => {
     e.preventDefault();
-    dispatch(setUserStar(user));
+    localStorage.setItem("user", JSON.stringify(user))
+
+    const userLocalStorage = JSON.parse(localStorage.getItem("user"))
+    
+    dispatch(setUserStar(userLocalStorage));
     if (user.email === "" || user.password === "") {
       setError("Please fill out all fields.");
     } else {
@@ -67,6 +71,7 @@ const Login = () => {
       try {
         await signInWithEmailAndPassword(auth, user.email, user.password);
         dispatch(setIsUserLogin(true))
+        localStorage.setItem('user',JSON.stringify(user))
         navigate("/")
       
       } catch (error) {

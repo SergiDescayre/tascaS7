@@ -60,9 +60,11 @@ body{
     }
   }
 
-  .container_img_not{
+  .container_img_not , .container_not_found{
     background-image: url("./assets/star-wars-not.jpg");
     background-size: cover;
     background-position: center;
     height: 400px;
   }
+
+  
