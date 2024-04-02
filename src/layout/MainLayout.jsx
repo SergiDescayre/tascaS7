@@ -10,7 +10,8 @@ import { fetchStarships } from "../features/starships/starShipThunk";
 import FileStarShip from "../pages/FileStarShip";
 import { useEffect } from "react";
 import ProtectedRoute from "../utils/ProtectedRoute";
-import { setIsUserLogin } from "../features/starships/starAuthSlice";
+import { setIsUserLogin,setUserStar,isLogin } from "../features/starships/starAuthSlice";
+
 
 
 const MainLayout = () => {
@@ -18,20 +19,16 @@ const MainLayout = () => {
   const comprovateUserLocal = () => {
     if(JSON.parse(localStorage.getItem("user"))){
       dispatch(setIsUserLogin(true))
-      console.log(JSON.parse(localStorage.getItem("user")))
+      dispatch(setUserStar(JSON.parse(localStorage.getItem("user"))))
     }
   }
-   
-  const { url, next } = useSelector((state) => state.starShips);
+  const { url } = useSelector((state) => state.starShips);
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchStarships(url))
     comprovateUserLocal()
   }, [url])
   
-
- 
-
   return (
     <div className="text-white">
       <Header />
