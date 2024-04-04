@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { updateUrl } from "../features/starships/starShipSlice";
-import StarShipsCard from "../components/starShipsCard";
+import StarShipsCard from "../components/StarShipsCard";
 
 const StarShips = () => {
 
