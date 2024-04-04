@@ -14,7 +14,7 @@ const StarShips = () => {
 
     if(isloading){
         return (
-            <div>Carregant...</div>
+            <div>Loading...</div>
         )
     }if(data){
         return(

@@ -31,9 +31,10 @@ const MainLayout = () => {
   
   return (
     <div className="text-white">
+     
+      <div className="w-[85%] md:w-[90%] lg:w-[75%] mx-auto">
       <Header />
       <Navbar />
-      <div className="w-[85%] md:w-[90%] lg:w-[75%] mx-auto">
         <Routes>
         <Route  path="/not_found" element={<NotFound />}/>
         <Route path="*" element={<Navigate to="/not_found"/>}/>

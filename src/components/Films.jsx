@@ -14,7 +14,7 @@ const Films = ({starship}) => {
   },[])
  
   if(isLoading){
-    return <div>Carregant...</div>
+    return <div>Loading...</div>
   }else{
     return (
       <div className="my-10">

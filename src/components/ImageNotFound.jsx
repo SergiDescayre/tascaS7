@@ -1,5 +1,5 @@
 import React from 'react'
-import starNotFound from "../assets/star-wars-not.jpg"
+
 
 const ImageNotFound = ({title}) => {
   return (

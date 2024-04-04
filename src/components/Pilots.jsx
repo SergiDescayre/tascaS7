@@ -15,7 +15,7 @@ const Pilots = ({ starship }) => {
   }, [])
 
   if (isLoading) {
-    return <div>Carregant...</div>
+    return <div>Loading...</div>
   } else {
     return (
       <div className="mx-auto mt-10">
